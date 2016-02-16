@@ -13,12 +13,7 @@ class ViewController: UIViewController {
     
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        var bounds = UIScreen.mainScreen().bounds
-        var width = bounds.size.width
-        var height = bounds.size.height
-        var buttonWidth = bounds.size.width / 6
-        var buttonHeight = bounds.size.height / 6
+        super.viewDidLoad()        
         display()
         clearButton()
         decimal()
@@ -44,6 +39,14 @@ class ViewController: UIViewController {
         
         
     }
+    
+    func bounds() {
+        let bounds = UIScreen.mainScreen().bounds
+        let width = bounds.size.width
+        let height = bounds.size.height
+        var buttonWidth = width / 6
+        var buttonHeight = height / 6
+    }
         
         
 
@@ -58,7 +61,7 @@ class ViewController: UIViewController {
     
     func btn0() {
         let btn0 = UIButton()
-        btn0.frame = CGRectMake(75, 620, buttonWidth, buttonHeight)
+        btn0.frame = CGRectMake(75, 620, bounds.buttonWidth, bounds.buttonHeight)
         btn0.backgroundColor = UIColor.orangeColor()
         btn0.setTitle("0", forState: UIControlState.Normal)
         btn0.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
