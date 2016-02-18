@@ -15,7 +15,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        label()
         getDimensions()
         clearButton()
         decimal()
@@ -38,7 +37,6 @@ class ViewController: UIViewController {
         btn7()
         btn8()
         btn9()
-
     }
     
     var firstNumber = Double()
@@ -48,17 +46,18 @@ class ViewController: UIViewController {
     var result = Double()
     
     
-    func appendDigit(sender: UIButton!) {
+    func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if userIsTypingNumber {
             display.text = display.text! + digit
         } else {
             display.text = digit
-            userIsTypingNumber  = true
         }
+        userIsTypingNumber  = true
     }
-    func solve(sender: UIButton!) {
+    func solve(sender: UIButton) {
         secondNumber = (display.text! as NSString).doubleValue
+        userIsTypingNumber = false
         if operation == "+" {
             result = firstNumber + secondNumber
         } else if  operation == "−" {
@@ -77,20 +76,19 @@ class ViewController: UIViewController {
         display.text = "\(result)"
     }
     
-    func pi(sender:UIButton!) {
-        let pi = M_PI
-    }
+//    func pi(sender:UIButton!) {
+//        let pi = M_PI
+//    }
     
     
     
-    func operation(sender: UIButton!) {
+    func operation(sender: UIButton) {
         userIsTypingNumber = false
         firstNumber = (display.text! as NSString).doubleValue
         operation = sender.currentTitle!
-
-    
     }
-    func empty(sender: UIButton!) {
+    
+    func empty(sender: UIButton) {
         firstNumber = 0
         secondNumber = 0
         result = 0
@@ -112,20 +110,16 @@ class ViewController: UIViewController {
         screenWidth = screenSize.width
     }
 
-    var display: UILabel!
-    
-    func label() {
-        getDimensions()
-        let display = UILabel()
-        display.frame = CGRectMake(width * 0, height * 0, screenWidth, height)
-        display.textAlignment = NSTextAlignment.Center
-        display.text = "0"
-        display.font = UIFont(name: "Times New Roman", size: 36)
-        display.layer.borderWidth = 2
-        display.backgroundColor = UIColor.grayColor()
-        display.textColor = UIColor.whiteColor()
-        self.view.addSubview(display)
-        
+    var display: UILabel! {
+        self.display.frame = CGRectMake(width * 0, height * 0, screenWidth, height)
+        self.display.textAlignment = NSTextAlignment.Center
+        self.display.text = "0"
+        self.display.font = UIFont(name: "Times New Roman", size: 36)
+        self.display.layer.borderWidth = 2
+        self.display.backgroundColor = UIColor.grayColor()
+        self.display.textColor = UIColor.whiteColor()
+        self.view.addSubview(self.display)
+        return self.display
     }
 
 
