@@ -495,6 +495,7 @@
 				D7FEB8141C73791C0060CD6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D7FEB8151C73791C0060CD6D /* Build configuration list for PBXNativeTarget "CalculatorFunTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +504,7 @@
 				D7FEB8171C73791C0060CD6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D7FEB8181C73791C0060CD6D /* Build configuration list for PBXNativeTarget "CalculatorFunUITests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +513,7 @@
 				D7FEB81A1C73791C0060CD6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

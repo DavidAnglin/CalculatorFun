@@ -51,11 +51,10 @@ class ViewController: UIViewController {
     
     func getDimensions() {
         let screenSize = UIScreen.mainScreen().bounds
-        self.height = screenSize.height / 6
-        self.width = screenSize.width / 5
+        height = screenSize.height / 6
+        width = screenSize.width / 5
         screenWidth = screenSize.width
-        print(height)
-        
+        self.view.setNeedsDisplay()
     }
 
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -83,7 +82,7 @@ class ViewController: UIViewController {
     func display() {
         getDimensions()
         let display = UILabel()
-        display.frame = CGRectMake(0, 0, screenWidth, height)
+        display.frame = CGRectMake(width * 0, height * 0, screenWidth, height)
         display.textAlignment = NSTextAlignment.Right
         display.text = "0"
         display.font = UIFont(name: "Times New Roman", size: 36)
@@ -96,9 +95,8 @@ class ViewController: UIViewController {
 
     
     func btn0() {
-        getDimensions()
         let btn0 = UIButton()
-        btn0.frame = CGRectMake(82.8, 613.35, width, height)
+        btn0.frame = CGRectMake(width * 1, height * 5, width, height)
         btn0.backgroundColor = UIColor.orangeColor()
         btn0.setTitle("0", forState: UIControlState.Normal)
         btn0.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -109,9 +107,8 @@ class ViewController: UIViewController {
     }
 
     func btn1() {
-        getDimensions()
         let btn1 = UIButton()
-        btn1.frame = CGRectMake(0, 490.68, width, height)
+        btn1.frame = CGRectMake(width * 0, height * 4, width, height)
         btn1.backgroundColor = UIColor.orangeColor()
         btn1.setTitle("1", forState: UIControlState.Normal)
         btn1.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -122,9 +119,8 @@ class ViewController: UIViewController {
     }
     
     func btn2() {
-        getDimensions()
         let btn2 = UIButton()
-        btn2.frame = CGRectMake(82.8, 490.68, width, height)
+        btn2.frame = CGRectMake(width * 1, height * 4, width, height)
         btn2.backgroundColor = UIColor.orangeColor()
         btn2.setTitle("2", forState: UIControlState.Normal)
         btn2.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -135,9 +131,8 @@ class ViewController: UIViewController {
     }
     
     func btn3() {
-        getDimensions()
         let btn3 = UIButton()
-        btn3.frame = CGRectMake(165.6, 490.68, width, height)
+        btn3.frame = CGRectMake(width * 2, height * 4, width, height)
         btn3.backgroundColor = UIColor.orangeColor()
         btn3.setTitle("3", forState: UIControlState.Normal)
         btn3.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -148,9 +143,8 @@ class ViewController: UIViewController {
     }
     
     func btn4() {
-        getDimensions()
         let btn4 = UIButton()
-        btn4.frame = CGRectMake(0, 368.01, width, height)
+        btn4.frame = CGRectMake(width * 0, height * 3, width, height)
         btn4.backgroundColor = UIColor.orangeColor()
         btn4.setTitle("4", forState: UIControlState.Normal)
         btn4.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -161,9 +155,8 @@ class ViewController: UIViewController {
     }
  
     func btn5() {
-        getDimensions()
         let btn5 = UIButton()
-        btn5.frame = CGRectMake(82.8, 368.01, width, height)
+        btn5.frame = CGRectMake(width * 1, height * 3, width, height)
         btn5.backgroundColor = UIColor.orangeColor()
         btn5.setTitle("5", forState: UIControlState.Normal)
         btn5.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -174,9 +167,8 @@ class ViewController: UIViewController {
     }
     
     func btn6() {
-        getDimensions()
         let btn6 = UIButton()
-        btn6.frame = CGRectMake(165.6, 368.01, width, height)
+        btn6.frame = CGRectMake(width * 2, height * 3, width, height)
         btn6.backgroundColor = UIColor.orangeColor()
         btn6.setTitle("6", forState: UIControlState.Normal)
         btn6.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -187,9 +179,8 @@ class ViewController: UIViewController {
     }
     
     func btn7() {
-        getDimensions()
         let btn7 = UIButton()
-        btn7.frame = CGRectMake(0, 245.34, width, height)
+        btn7.frame = CGRectMake(width * 0, height * 2, width, height)
         btn7.backgroundColor = UIColor.orangeColor()
         btn7.setTitle("7", forState: UIControlState.Normal)
         btn7.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -200,9 +191,8 @@ class ViewController: UIViewController {
     }
     
     func btn8() {
-        getDimensions()
         let btn8 = UIButton()
-        btn8.frame = CGRectMake(82.8, 245.34, width, height)
+        btn8.frame = CGRectMake(width * 1, height * 2, width, height)
         btn8.backgroundColor = UIColor.orangeColor()
         btn8.setTitle("8", forState: UIControlState.Normal)
         btn8.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -213,9 +203,8 @@ class ViewController: UIViewController {
     }
     
     func btn9() {
-        getDimensions()
         let btn9 = UIButton()
-        btn9.frame = CGRectMake(165.6, 245.34, width, height)
+        btn9.frame = CGRectMake(width * 2, height * 2, width, height)
         btn9.backgroundColor = UIColor.orangeColor()
         btn9.setTitle("9", forState: UIControlState.Normal)
         btn9.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -226,9 +215,8 @@ class ViewController: UIViewController {
     }
     
     func decimal() {
-        getDimensions()
         let decimal = UIButton()
-        decimal.frame = CGRectMake(0, 613.35, width, height)
+        decimal.frame = CGRectMake(width * 0, height * 5, width, height)
         decimal.backgroundColor = UIColor.orangeColor()
         decimal.setTitle(".", forState: UIControlState.Normal)
         decimal.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -239,9 +227,8 @@ class ViewController: UIViewController {
     }
     
     func equal() {
-        getDimensions()
         let equal = UIButton()
-        equal.frame = CGRectMake(165.6, 613.35, width, height)
+        equal.frame = CGRectMake(width * 2, height * 5, width, height)
         equal.backgroundColor = UIColor.orangeColor()
         equal.setTitle("=", forState: UIControlState.Normal)
         equal.addTarget(self, action: "solve:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -252,9 +239,8 @@ class ViewController: UIViewController {
     }
     
     func times() {
-        getDimensions()
         let times = UIButton()
-        times.frame = CGRectMake(248.4, 245.34, width, height)
+        times.frame = CGRectMake(width * 3, height * 2, width, height)
         times.backgroundColor = UIColor.orangeColor()
         times.setTitle("×", forState: UIControlState.Normal)
         times.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -265,9 +251,8 @@ class ViewController: UIViewController {
     }
     
     func divide() {
-        getDimensions()
         let divide = UIButton()
-        divide.frame = CGRectMake(248.4, 368.01, width, height)
+        divide.frame = CGRectMake(width * 3, height * 3, width, height)
         divide.backgroundColor = UIColor.orangeColor()
         divide.setTitle("÷", forState: UIControlState.Normal)
         divide.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -278,9 +263,8 @@ class ViewController: UIViewController {
     }
     
     func add() {
-        getDimensions()
         let add = UIButton()
-        add.frame = CGRectMake(248.4, 490.68, width, height)
+        add.frame = CGRectMake(width * 3, height * 4, width, height)
         add.backgroundColor = UIColor.orangeColor()
         add.setTitle("+", forState: UIControlState.Normal)
         add.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -291,9 +275,8 @@ class ViewController: UIViewController {
     }
     
     func subtract() {
-        getDimensions()
         let subtract = UIButton()
-        subtract.frame = CGRectMake(248.4, 613.35, width, height)
+        subtract.frame = CGRectMake(width * 3, height * 5, width, height)
         subtract.backgroundColor = UIColor.orangeColor()
         subtract.setTitle("−", forState: UIControlState.Normal)
         subtract.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -304,9 +287,8 @@ class ViewController: UIViewController {
     }
     
     func sin() {
-        getDimensions()
         let sin = UIButton()
-        sin.frame = CGRectMake(331.2, 245.34, width, height)
+        sin.frame = CGRectMake(width * 4, height * 2, width, height)
         sin.backgroundColor = UIColor.orangeColor()
         sin.setTitle("sin", forState: UIControlState.Normal)
         sin.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -317,9 +299,8 @@ class ViewController: UIViewController {
     }
     
     func cos() {
-        getDimensions()
         let cos = UIButton()
-        cos.frame = CGRectMake(331.2, 368.01, width, height)
+        cos.frame = CGRectMake(width * 4, height * 3, width, height)
         cos.backgroundColor = UIColor.orangeColor()
         cos.setTitle("cos", forState: UIControlState.Normal)
         cos.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -331,9 +312,8 @@ class ViewController: UIViewController {
     
     
     func pi() {
-        getDimensions()
         let pi = UIButton()
-        pi.frame = CGRectMake(331.2, 490.68, width, height)
+        pi.frame = CGRectMake(width * 4, height * 4, width, height)
         pi.backgroundColor = UIColor.orangeColor()
         pi.setTitle("π", forState: UIControlState.Normal)
         pi.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -344,9 +324,8 @@ class ViewController: UIViewController {
     }
     
     func root() {
-        getDimensions()
         let root = UIButton()
-        root.frame = CGRectMake(331.2, 613.35, width, height)
+        root.frame = CGRectMake(width * 4, height * 5, width, height)
         root.backgroundColor = UIColor.orangeColor()
         root.setTitle("√", forState: UIControlState.Normal)
         root.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -357,9 +336,8 @@ class ViewController: UIViewController {
     }
     
     func clearButton() {
-        getDimensions()
         let clear = UIButton()
-        clear.frame = CGRectMake(0, 122.67, screenWidth, height)
+        clear.frame = CGRectMake(width * 0, height * 1, screenWidth, height)
         clear.backgroundColor = UIColor.orangeColor()
         clear.setTitle("Clear", forState: UIControlState.Normal)
         clear.addTarget(self, action: "empty:", forControlEvents: UIControlEvents.TouchUpInside)
