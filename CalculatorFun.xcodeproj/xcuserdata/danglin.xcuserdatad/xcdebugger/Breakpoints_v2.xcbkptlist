@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalculatorFun/ViewController.swift"
-            timestampString = "477347388.060375"
+            timestampString = "477524504.218301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,75 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalculatorFun/ViewController.swift"
-            timestampString = "477512328.742735"
+            timestampString = "477526031.497089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "viewWillTransitionToSize(_:withTransitionCoordinator:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CalculatorFun/ViewController.swift"
-            timestampString = "477512285.065519"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "viewWillTransitionToSize(_:withTransitionCoordinator:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CalculatorFun/ViewController.swift"
-            timestampString = "477512328.742735"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "viewWillTransitionToSize(_:withTransitionCoordinator:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CalculatorFun/ViewController.swift"
-            timestampString = "477512328.742735"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "viewWillTransitionToSize(_:withTransitionCoordinator:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CalculatorFun/ViewController.swift"
-            timestampString = "477503854.724676"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -106,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalculatorFun/ViewController.swift"
-            timestampString = "477506242.107471"
+            timestampString = "477526031.497089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "getDimensions()"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalculatorFun/ViewController.swift"
-            timestampString = "477506242.107471"
+            timestampString = "477526031.497089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "getDimensions()"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalculatorFun/ViewController.swift"
-            timestampString = "477512328.742735"
+            timestampString = "477526031.497089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "ViewController"
-            landmarkType = "3">
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "label()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -154,13 +90,138 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalculatorFun/ViewController.swift"
-            timestampString = "477512328.742735"
+            timestampString = "477526031.497089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "getDimensions()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalculatorFun/ViewController.swift"
+            timestampString = "477526031.497089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "viewWillTransitionToSize(_:withTransitionCoordinator:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalculatorFun/ViewController.swift"
+            timestampString = "477526031.497089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "solve(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalculatorFun/ViewController.swift"
+            timestampString = "477526031.497089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "solve(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalculatorFun.ViewController.screenWidth.getter : CoreGraphics.CGFloat"
+                  moduleName = "CalculatorFun"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danglin/Developer/Swift/CalculatorFun/CalculatorFun/ViewController.swift"
+                  timestampString = "477522649.862625"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalculatorFun.ViewController.screenWidth.setter : CoreGraphics.CGFloat"
+                  moduleName = "CalculatorFun"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danglin/Developer/Swift/CalculatorFun/CalculatorFun/ViewController.swift"
+                  timestampString = "477522649.862928"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalculatorFun.ViewController.screenWidth.materializeForSet : CoreGraphics.CGFloat"
+                  moduleName = "CalculatorFun"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danglin/Developer/Swift/CalculatorFun/CalculatorFun/ViewController.swift"
+                  timestampString = "477522649.86313"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalculatorFun.ViewController.init (CalculatorFun.ViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; CalculatorFun.ViewController"
+                  moduleName = "CalculatorFun"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danglin/Developer/Swift/CalculatorFun/CalculatorFun/ViewController.swift"
+                  timestampString = "477522649.863333"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalculatorFun.ViewController.init (CalculatorFun.ViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;CalculatorFun.ViewController&gt;"
+                  moduleName = "CalculatorFun"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danglin/Developer/Swift/CalculatorFun/CalculatorFun/ViewController.swift"
+                  timestampString = "477522649.863529"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "252">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

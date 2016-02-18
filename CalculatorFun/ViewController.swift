@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Darwin
 
 @IBDesignable
 class ViewController: UIViewController {
@@ -14,7 +15,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        display()
+        label()
         getDimensions()
         clearButton()
         decimal()
@@ -40,6 +41,61 @@ class ViewController: UIViewController {
 
     }
     
+    var firstNumber = Double()
+    var secondNumber = Double()
+    var operation = ""
+    var userIsTypingNumber = false
+    var result = Double()
+    
+    
+    func appendDigit(sender: UIButton!) {
+        let digit = sender.currentTitle!
+        if userIsTypingNumber {
+            display.text = display.text! + digit
+        } else {
+            display.text = digit
+            userIsTypingNumber  = true
+        }
+    }
+    func solve(sender: UIButton!) {
+        secondNumber = (display.text! as NSString).doubleValue
+        if operation == "+" {
+            result = firstNumber + secondNumber
+        } else if  operation == "−" {
+            result = secondNumber-firstNumber
+        } else if  operation == "×" {
+            result = firstNumber * secondNumber
+        } else if operation == "÷" {
+            result = secondNumber / firstNumber
+        } else if operation == "√" {
+            result = sqrt(firstNumber)
+//        } else if operation == "cos" {
+//            result = cos(firstNumber)
+        } else if operation == "sin" {
+            self.result = sind(self.firstNumber)
+        }
+        display.text = "\(result)"
+    }
+    
+    func pi(sender:UIButton!) {
+        let pi = M_PI
+    }
+    
+    
+    
+    func operation(sender: UIButton!) {
+        userIsTypingNumber = false
+        firstNumber = (display.text! as NSString).doubleValue
+        operation = sender.currentTitle!
+
+    
+    }
+    func empty(sender: UIButton!) {
+        firstNumber = 0
+        secondNumber = 0
+        result = 0
+        display.text = "\(0)"
+    }
     
     
     
@@ -79,14 +135,18 @@ class ViewController: UIViewController {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
     }
     
-    func display() {
+    var display: UILabel!
+    
+    func label() {
         getDimensions()
         let display = UILabel()
         display.frame = CGRectMake(width * 0, height * 0, screenWidth, height)
-        display.textAlignment = NSTextAlignment.Right
+        display.textAlignment = NSTextAlignment.Center
         display.text = "0"
         display.font = UIFont(name: "Times New Roman", size: 36)
         display.layer.borderWidth = 2
+        display.backgroundColor = UIColor.grayColor()
+        display.textColor = UIColor.whiteColor()
         self.view.addSubview(display)
         
     }
@@ -316,7 +376,7 @@ class ViewController: UIViewController {
         pi.frame = CGRectMake(width * 4, height * 4, width, height)
         pi.backgroundColor = UIColor.orangeColor()
         pi.setTitle("π", forState: UIControlState.Normal)
-        pi.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
+        pi.addTarget(self, action: "pi:", forControlEvents: UIControlEvents.TouchUpInside)
         pi.tag = 18
         pi.layer.borderWidth = 1
         pi.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -346,23 +406,11 @@ class ViewController: UIViewController {
         clear.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
         self.view.addSubview(clear)
     }
-
- 
-        
-        
-        
-//
-//    func appendDigit(sender: UIButton!) {
-//    }
-//    func solve(sender: UIButton!) {
-//        }
-//    func operation(sender: UIButton!) {
-//        }
-//    func empty(sender: UIButton!) {
-//        }
-//
-
-
 }
+
+func sind(degrees: Double) -> Double {
+    return sin(degrees * M_PI / 180.0)
+}
+
 
 
