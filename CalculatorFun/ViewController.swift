@@ -110,31 +110,8 @@ class ViewController: UIViewController {
         height = screenSize.height / 6
         width = screenSize.width / 5
         screenWidth = screenSize.width
-        self.view.setNeedsDisplay()
     }
 
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        
-        coordinator.animateAlongsideTransition({ (UIViewControllerTransitionCoordinatorContext) -> Void in
-            
-            let orient = UIApplication.sharedApplication().statusBarOrientation
-           
-            
-            switch orient {
-            case .Portrait:
-                self.getDimensions()
-                
-            default:
-                self.getDimensions()
-            }
-        
-            }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
-                print("rotation completed")
-            })
-    
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-    }
-    
     var display: UILabel!
     
     func label() {
@@ -195,7 +172,7 @@ class ViewController: UIViewController {
         btn3.frame = CGRectMake(width * 2, height * 4, width, height)
         btn3.backgroundColor = UIColor.orangeColor()
         btn3.setTitle("3", forState: UIControlState.Normal)
-        btn3.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn3.addTarget(self, action: ("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         btn3.tag = 3
         btn3.layer.borderWidth = 1
         btn3.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
