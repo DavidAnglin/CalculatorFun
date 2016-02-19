@@ -12,7 +12,21 @@ import Darwin
 @IBDesignable
 class ViewController: UIViewController {
     
-
+    var height: CGFloat = 0.0
+    var width: CGFloat = 0.0
+    var screenWidth: CGFloat = 0.0
+    
+    var display: UILabel! = UILabel()
+    
+    var firstNumber = Double()
+    var secondNumber = Double()
+    var operation = ""
+    var userIsTypingNumber = false
+    var result = Double()
+    var decimalIsPressed = false
+    
+    let x = Double(M_PI)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         label()
@@ -39,27 +53,7 @@ class ViewController: UIViewController {
         btn8()
         btn9()
         
-    }
-    
-    var display: UILabel! = UILabel()
-
-    func label()  {
-        getDimensions()
-        display.frame = CGRect(x: width * 0, y: height * 0, width: screenWidth, height: height)
-        display.textAlignment = NSTextAlignment.Center
-        display.text = "0"
-        display.font = UIFont(name: "Times New Roman", size: 36)
-        display.backgroundColor = UIColor.grayColor()
-        display.textColor = UIColor.whiteColor()
-        self.view.addSubview(display)
-    }
-    
-    var firstNumber = Double()
-    var secondNumber = Double()
-    var operation = ""
-    var userIsTypingNumber = false
-    var result = Double()
-    
+    }    
 
     func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -74,6 +68,24 @@ class ViewController: UIViewController {
     func solve(sender: UIButton) {
         secondNumber = (display.text! as NSString).doubleValue
         userIsTypingNumber = false
+      enter()
+    }
+    
+    func pis(sender: UIButton) {
+        userIsTypingNumber = true
+            if display.text != "0" {
+                enter()
+                display.text = "\(x)"
+                enter()
+            } else {
+                display.text = "\(x)"
+                enter()
+            }
+        }
+    
+    func enter() {
+        userIsTypingNumber = false
+        decimalIsPressed = false
         if operation == "+" {
             result = firstNumber + secondNumber
         } else if  operation == "−" {
@@ -84,21 +96,25 @@ class ViewController: UIViewController {
             result = firstNumber / secondNumber
         } else if operation == "√" {
             result = sqrt(firstNumber)
-//        } else if operation == "cos" {
-//            result = cos(firstNumber)
+            //        } else if operation == "cos" {
+            //            result = cos(firstNumber)
         } else if operation == "sin" {
-            self.result = sind(secondNumber)
+            result = sind(secondNumber)
         }
         display.text = "\(result)"
     }
     
-    func pi(sender:UIButton!) {
-        let pi = 3.14
+    func point(sender:UIButton) {
+        userIsTypingNumber = true
+        if decimalIsPressed == false {
+            display.text = display.text! + "."
+            decimalIsPressed = true
+        }
     }
     
     
     
-    func operation(sender: UIButton) {
+   func operation(sender: UIButton) {
         userIsTypingNumber = false
         firstNumber = (display.text! as NSString).doubleValue
         operation = sender.currentTitle!
@@ -111,42 +127,23 @@ class ViewController: UIViewController {
         display.text = "\(0)"
     }
     
-    
-    
-    var height: CGFloat = 0.0
-    var width: CGFloat = 0.0
-    var screenWidth: CGFloat = 0.0
-
-    
-    
     func getDimensions() {
         let screenSize = UIScreen.mainScreen().bounds
         height = screenSize.height / 6
         width = screenSize.width / 5
         screenWidth = screenSize.width
     }
-
     
-    
-//    func display() {
-//            getDimensions()
-//            display.frame = CGRect(width * 0, height * 0, screenWidth, height)
-//            display.textAlignment = NSTextAlignment.Center
-//            display.text = "0"
-//            display.font = UIFont(name: "Times New Roman", size: 36)
-//            display.layer.borderWidth = 2
-//            display.backgroundColor = UIColor.grayColor()
-//            display.textColor = UIColor.whiteColor()
-//            self.view.addSubview(display)
-//        
-//        }
-    
-    
- 
-
-
-
-
+    func label()  {
+        getDimensions()
+        display.frame = CGRect(x: width * 0, y: height * 0, width: screenWidth, height: height)
+        display.textAlignment = NSTextAlignment.Center
+        display.text = "0"
+        display.font = UIFont(name: "Times New Roman", size: 36)
+        display.backgroundColor = UIColor.grayColor()
+        display.textColor = UIColor.whiteColor()
+        self.view.addSubview(display)
+    }
 
     
     func btn0() {
@@ -274,7 +271,7 @@ class ViewController: UIViewController {
         decimal.frame = CGRectMake(width * 0, height * 5, width, height)
         decimal.backgroundColor = UIColor.orangeColor()
         decimal.setTitle(".", forState: UIControlState.Normal)
-        decimal.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
+        decimal.addTarget(self, action: Selector("point:"), forControlEvents: UIControlEvents.TouchUpInside)
         decimal.tag = 10
         decimal.layer.borderWidth = 1
         decimal.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -371,7 +368,7 @@ class ViewController: UIViewController {
         pi.frame = CGRectMake(width * 4, height * 4, width, height)
         pi.backgroundColor = UIColor.orangeColor()
         pi.setTitle("π", forState: UIControlState.Normal)
-        pi.addTarget(self, action: Selector("pi:"), forControlEvents: UIControlEvents.TouchUpInside)
+        pi.addTarget(self, action: Selector("pis:"), forControlEvents: UIControlEvents.TouchUpInside)
         pi.tag = 18
         pi.layer.borderWidth = 1
         pi.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -400,8 +397,9 @@ class ViewController: UIViewController {
         clear.layer.borderWidth = 1
         clear.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
         self.view.addSubview(clear)
+        }
     }
-}
+
 
 func sind(degrees: Double) -> Double {
     return sin(degrees * M_PI / 180.0)
