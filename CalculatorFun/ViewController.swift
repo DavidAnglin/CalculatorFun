@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         secondNumber = (display.text! as NSString).doubleValue
         userIsTypingNumber = false
         if operation == "+" {
-            result = firstNumber + secondNumber
+            result = firstNumber + secondNumber            
         } else if  operation == "−" {
             result = firstNumber-secondNumber
         } else if  operation == "×" {
@@ -85,6 +85,7 @@ class ViewController: UIViewController {
         } else if operation == "sin" {
             result = sind(secondNumber)
         }
+        userIsTypingNumber = false
         display.text = "\(result)"
     }
     
