@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        label()
         getDimensions()
         clearButton()
         decimal()
@@ -39,62 +40,76 @@ class ViewController: UIViewController {
         btn9()
     }
     
-    var firstNumber = Double()
-    var secondNumber = Double()
-    var operation = ""
+    var display: UILabel!
+    
+    func label()  {
+        getDimensions()
+        display.frame = CGRect(x: width * 0, y: height * 0, width: screenWidth, height: height)
+        display.textAlignment = NSTextAlignment.Center
+        display.text = "0"
+        display.font = UIFont(name: "Times New Roman", size: 36)
+        display.backgroundColor = UIColor.grayColor()
+        display.textColor = UIColor.whiteColor()
+        self.view.addSubview(display)
+    }
+    
+//    var firstNumber = Double()
+//    var secondNumber = Double()
+//    var operation = ""
     var userIsTypingNumber = false
-    var result = Double()
+//    var result = Double()
     
-    
+   
     func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if userIsTypingNumber {
             display.text = display.text! + digit
         } else {
             display.text = digit
+            userIsTypingNumber  = true
         }
-        userIsTypingNumber  = true
     }
-    func solve(sender: UIButton) {
-        secondNumber = (display.text! as NSString).doubleValue
-        userIsTypingNumber = false
-        if operation == "+" {
-            result = firstNumber + secondNumber
-        } else if  operation == "−" {
-            result = secondNumber-firstNumber
-        } else if  operation == "×" {
-            result = firstNumber * secondNumber
-        } else if operation == "÷" {
-            result = secondNumber / firstNumber
-        } else if operation == "√" {
-            result = sqrt(firstNumber)
-//        } else if operation == "cos" {
-//            result = cos(firstNumber)
-        } else if operation == "sin" {
-            self.result = sind(self.firstNumber)
-        }
-        display.text = "\(result)"
-    }
+//
+//    func solve(sender: UIButton) {
+//        secondNumber = (display.text! as NSString).doubleValue
+//        userIsTypingNumber = false
+//        if operation == "+" {
+//            result = firstNumber + secondNumber
+//        } else if  operation == "−" {
+//            result = secondNumber-firstNumber
+//        } else if  operation == "×" {
+//            result = firstNumber * secondNumber
+//        } else if operation == "÷" {
+//            result = secondNumber / firstNumber
+//        } else if operation == "√" {
+//            result = sqrt(firstNumber)
+////        } else if operation == "cos" {
+////            result = cos(firstNumber)
+//        } else if operation == "sin" {
+//            self.result = sind(self.firstNumber)
+//        }
+//        display.text = "\(result)"
+//    }
     
 //    func pi(sender:UIButton!) {
 //        let pi = M_PI
 //    }
     
     
-    
-    func operation(sender: UIButton) {
-        userIsTypingNumber = false
-        firstNumber = (display.text! as NSString).doubleValue
-        operation = sender.currentTitle!
-    }
-    
-    func empty(sender: UIButton) {
-        firstNumber = 0
-        secondNumber = 0
-        result = 0
-        display.text = "\(0)"
-    }
-    
+//    
+//    func operation(sender: UIButton) {
+//        userIsTypingNumber = false
+//        firstNumber = (display.text! as NSString).doubleValue
+//        operation = sender.currentTitle!
+//    }
+//    
+//    func empty(sender: UIButton) {
+//        firstNumber = 0
+//        secondNumber = 0
+//        result = 0
+//        display.text = "\(0)"
+//    }
+//    
     
     
     var height: CGFloat = 0.0
@@ -110,27 +125,35 @@ class ViewController: UIViewController {
         screenWidth = screenSize.width
     }
 
-    var display: UILabel! {
-        self.display.frame = CGRectMake(width * 0, height * 0, screenWidth, height)
-        self.display.textAlignment = NSTextAlignment.Center
-        self.display.text = "0"
-        self.display.font = UIFont(name: "Times New Roman", size: 36)
-        self.display.layer.borderWidth = 2
-        self.display.backgroundColor = UIColor.grayColor()
-        self.display.textColor = UIColor.whiteColor()
-        self.view.addSubview(self.display)
-        return self.display
-    }
+    
+    
+//    func display() {
+//            getDimensions()
+//            display.frame = CGRect(width * 0, height * 0, screenWidth, height)
+//            display.textAlignment = NSTextAlignment.Center
+//            display.text = "0"
+//            display.font = UIFont(name: "Times New Roman", size: 36)
+//            display.layer.borderWidth = 2
+//            display.backgroundColor = UIColor.grayColor()
+//            display.textColor = UIColor.whiteColor()
+//            self.view.addSubview(display)
+//        
+//        }
+    
+    
+ 
+
+
 
 
 
     
     func btn0() {
-        let btn0 = UIButton()
+        let btn0 = UIButton(type: UIButtonType.Custom)
         btn0.frame = CGRectMake(width * 1, height * 5, width, height)
         btn0.backgroundColor = UIColor.orangeColor()
         btn0.setTitle("0", forState: UIControlState.Normal)
-        btn0.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn0.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         btn0.tag = 0
         btn0.layer.borderWidth = 1
         btn0.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -138,11 +161,11 @@ class ViewController: UIViewController {
     }
 
     func btn1() {
-        let btn1 = UIButton()
+        let btn1 = UIButton(type: UIButtonType.Custom)
         btn1.frame = CGRectMake(width * 0, height * 4, width, height)
         btn1.backgroundColor = UIColor.orangeColor()
         btn1.setTitle("1", forState: UIControlState.Normal)
-        btn1.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn1.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         btn1.tag = 1
         btn1.layer.borderWidth = 1
         btn1.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -150,11 +173,11 @@ class ViewController: UIViewController {
     }
     
     func btn2() {
-        let btn2 = UIButton()
+        let btn2 = UIButton(type: UIButtonType.Custom)
         btn2.frame = CGRectMake(width * 1, height * 4, width, height)
         btn2.backgroundColor = UIColor.orangeColor()
         btn2.setTitle("2", forState: UIControlState.Normal)
-        btn2.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn2.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         btn2.tag = 2
         btn2.layer.borderWidth = 1
         btn2.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -162,11 +185,11 @@ class ViewController: UIViewController {
     }
     
     func btn3() {
-        let btn3 = UIButton()
+        let btn3 = UIButton(type: UIButtonType.Custom)
         btn3.frame = CGRectMake(width * 2, height * 4, width, height)
         btn3.backgroundColor = UIColor.orangeColor()
         btn3.setTitle("3", forState: UIControlState.Normal)
-        btn3.addTarget(self, action: ("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
+        btn3.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         btn3.tag = 3
         btn3.layer.borderWidth = 1
         btn3.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -174,11 +197,11 @@ class ViewController: UIViewController {
     }
     
     func btn4() {
-        let btn4 = UIButton()
+        let btn4 = UIButton(type: UIButtonType.Custom)
         btn4.frame = CGRectMake(width * 0, height * 3, width, height)
         btn4.backgroundColor = UIColor.orangeColor()
         btn4.setTitle("4", forState: UIControlState.Normal)
-        btn4.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn4.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         btn4.tag = 4
         btn4.layer.borderWidth = 1
         btn4.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -186,11 +209,11 @@ class ViewController: UIViewController {
     }
  
     func btn5() {
-        let btn5 = UIButton()
+        let btn5 = UIButton(type: UIButtonType.Custom)
         btn5.frame = CGRectMake(width * 1, height * 3, width, height)
         btn5.backgroundColor = UIColor.orangeColor()
         btn5.setTitle("5", forState: UIControlState.Normal)
-        btn5.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn5.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         btn5.tag = 5
         btn5.layer.borderWidth = 1
         btn5.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -198,11 +221,11 @@ class ViewController: UIViewController {
     }
     
     func btn6() {
-        let btn6 = UIButton()
+        let btn6 = UIButton(type: UIButtonType.Custom)
         btn6.frame = CGRectMake(width * 2, height * 3, width, height)
         btn6.backgroundColor = UIColor.orangeColor()
         btn6.setTitle("6", forState: UIControlState.Normal)
-        btn6.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn6.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         btn6.tag = 6
         btn6.layer.borderWidth = 1
         btn6.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -210,11 +233,11 @@ class ViewController: UIViewController {
     }
     
     func btn7() {
-        let btn7 = UIButton()
+        let btn7 = UIButton(type: UIButtonType.Custom)
         btn7.frame = CGRectMake(width * 0, height * 2, width, height)
         btn7.backgroundColor = UIColor.orangeColor()
         btn7.setTitle("7", forState: UIControlState.Normal)
-        btn7.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn7.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         btn7.tag = 7
         btn7.layer.borderWidth = 1
         btn7.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -222,11 +245,11 @@ class ViewController: UIViewController {
     }
     
     func btn8() {
-        let btn8 = UIButton()
+        let btn8 = UIButton(type: UIButtonType.Custom)
         btn8.frame = CGRectMake(width * 1, height * 2, width, height)
         btn8.backgroundColor = UIColor.orangeColor()
         btn8.setTitle("8", forState: UIControlState.Normal)
-        btn8.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn8.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         btn8.tag = 8
         btn8.layer.borderWidth = 1
         btn8.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -234,11 +257,11 @@ class ViewController: UIViewController {
     }
     
     func btn9() {
-        let btn9 = UIButton()
+        let btn9 = UIButton(type: UIButtonType.Custom)
         btn9.frame = CGRectMake(width * 2, height * 2, width, height)
         btn9.backgroundColor = UIColor.orangeColor()
         btn9.setTitle("9", forState: UIControlState.Normal)
-        btn9.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn9.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         btn9.tag = 9
         btn9.layer.borderWidth = 1
         btn9.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -246,11 +269,11 @@ class ViewController: UIViewController {
     }
     
     func decimal() {
-        let decimal = UIButton()
+        let decimal = UIButton(type: UIButtonType.Custom)
         decimal.frame = CGRectMake(width * 0, height * 5, width, height)
         decimal.backgroundColor = UIColor.orangeColor()
         decimal.setTitle(".", forState: UIControlState.Normal)
-        decimal.addTarget(self, action: "appendDigit:", forControlEvents: UIControlEvents.TouchUpInside)
+        decimal.addTarget(self, action: Selector("appendDigit:"), forControlEvents: UIControlEvents.TouchUpInside)
         decimal.tag = 10
         decimal.layer.borderWidth = 1
         decimal.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -258,11 +281,11 @@ class ViewController: UIViewController {
     }
     
     func equal() {
-        let equal = UIButton()
+        let equal = UIButton(type: UIButtonType.Custom)
         equal.frame = CGRectMake(width * 2, height * 5, width, height)
         equal.backgroundColor = UIColor.orangeColor()
         equal.setTitle("=", forState: UIControlState.Normal)
-        equal.addTarget(self, action: "solve:", forControlEvents: UIControlEvents.TouchUpInside)
+        equal.addTarget(self, action: Selector("solve:"), forControlEvents: UIControlEvents.TouchUpInside)
         equal.tag = 11
         equal.layer.borderWidth = 1
         equal.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -270,11 +293,11 @@ class ViewController: UIViewController {
     }
     
     func times() {
-        let times = UIButton()
+        let times = UIButton(type: UIButtonType.Custom)
         times.frame = CGRectMake(width * 3, height * 2, width, height)
         times.backgroundColor = UIColor.orangeColor()
         times.setTitle("×", forState: UIControlState.Normal)
-        times.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
+        times.addTarget(self, action: Selector("operation:"), forControlEvents: UIControlEvents.TouchUpInside)
         times.tag = 12
         times.layer.borderWidth = 1
         times.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -282,11 +305,11 @@ class ViewController: UIViewController {
     }
     
     func divide() {
-        let divide = UIButton()
+        let divide = UIButton(type: UIButtonType.Custom)
         divide.frame = CGRectMake(width * 3, height * 3, width, height)
         divide.backgroundColor = UIColor.orangeColor()
         divide.setTitle("÷", forState: UIControlState.Normal)
-        divide.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
+        divide.addTarget(self, action: Selector("operation:"), forControlEvents: UIControlEvents.TouchUpInside)
         divide.tag = 13
         divide.layer.borderWidth = 1
         divide.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -294,11 +317,11 @@ class ViewController: UIViewController {
     }
     
     func add() {
-        let add = UIButton()
+        let add = UIButton(type: UIButtonType.Custom)
         add.frame = CGRectMake(width * 3, height * 4, width, height)
         add.backgroundColor = UIColor.orangeColor()
         add.setTitle("+", forState: UIControlState.Normal)
-        add.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
+        add.addTarget(self, action: Selector("operation:"), forControlEvents: UIControlEvents.TouchUpInside)
         add.tag = 14
         add.layer.borderWidth = 1
         add.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -306,11 +329,11 @@ class ViewController: UIViewController {
     }
     
     func subtract() {
-        let subtract = UIButton()
+        let subtract = UIButton(type: UIButtonType.Custom)
         subtract.frame = CGRectMake(width * 3, height * 5, width, height)
         subtract.backgroundColor = UIColor.orangeColor()
         subtract.setTitle("−", forState: UIControlState.Normal)
-        subtract.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
+        subtract.addTarget(self, action: Selector("operation:"), forControlEvents: UIControlEvents.TouchUpInside)
         subtract.tag = 15
         subtract.layer.borderWidth = 1
         subtract.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -318,11 +341,11 @@ class ViewController: UIViewController {
     }
     
     func sin() {
-        let sin = UIButton()
+        let sin = UIButton(type: UIButtonType.Custom)
         sin.frame = CGRectMake(width * 4, height * 2, width, height)
         sin.backgroundColor = UIColor.orangeColor()
         sin.setTitle("sin", forState: UIControlState.Normal)
-        sin.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
+        sin.addTarget(self, action: Selector("operation:"), forControlEvents: UIControlEvents.TouchUpInside)
         sin.tag = 16
         sin.layer.borderWidth = 1
         sin.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -330,11 +353,11 @@ class ViewController: UIViewController {
     }
     
     func cos() {
-        let cos = UIButton()
+        let cos = UIButton(type: UIButtonType.Custom)
         cos.frame = CGRectMake(width * 4, height * 3, width, height)
         cos.backgroundColor = UIColor.orangeColor()
         cos.setTitle("cos", forState: UIControlState.Normal)
-        cos.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
+        cos.addTarget(self, action: Selector("operation:"), forControlEvents: UIControlEvents.TouchUpInside)
         cos.tag = 17
         cos.layer.borderWidth = 1
         cos.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -343,11 +366,11 @@ class ViewController: UIViewController {
     
     
     func pi() {
-        let pi = UIButton()
+        let pi = UIButton(type: UIButtonType.Custom)
         pi.frame = CGRectMake(width * 4, height * 4, width, height)
         pi.backgroundColor = UIColor.orangeColor()
         pi.setTitle("π", forState: UIControlState.Normal)
-        pi.addTarget(self, action: "pi:", forControlEvents: UIControlEvents.TouchUpInside)
+        pi.addTarget(self, action: Selector("pi:"), forControlEvents: UIControlEvents.TouchUpInside)
         pi.tag = 18
         pi.layer.borderWidth = 1
         pi.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -355,11 +378,11 @@ class ViewController: UIViewController {
     }
     
     func root() {
-        let root = UIButton()
+        let root = UIButton(type: UIButtonType.Custom)
         root.frame = CGRectMake(width * 4, height * 5, width, height)
         root.backgroundColor = UIColor.orangeColor()
         root.setTitle("√", forState: UIControlState.Normal)
-        root.addTarget(self, action: "operation:", forControlEvents: UIControlEvents.TouchUpInside)
+        root.addTarget(self, action: Selector("operation:"), forControlEvents: UIControlEvents.TouchUpInside)
         root.tag = 19
         root.layer.borderWidth = 1
         root.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
@@ -367,11 +390,11 @@ class ViewController: UIViewController {
     }
     
     func clearButton() {
-        let clear = UIButton()
+        let clear = UIButton(type: UIButtonType.Custom)
         clear.frame = CGRectMake(width * 0, height * 1, screenWidth, height)
         clear.backgroundColor = UIColor.orangeColor()
         clear.setTitle("Clear", forState: UIControlState.Normal)
-        clear.addTarget(self, action: "empty:", forControlEvents: UIControlEvents.TouchUpInside)
+        clear.addTarget(self, action: Selector("empty:"), forControlEvents: UIControlEvents.TouchUpInside)
         clear.tag = 20
         clear.layer.borderWidth = 1
         clear.titleLabel!.font = UIFont(name: "Times New Roman", size: 36)
