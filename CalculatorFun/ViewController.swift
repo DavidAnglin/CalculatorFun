@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     var width: CGFloat = 0.0
     var screenWidth: CGFloat = 0.0
     
-    var display: UILabel! = UILabel()
+    var display: UILabel!
     
     var firstNumber = Double()
     var secondNumber = Double()
@@ -133,6 +133,7 @@ class ViewController: UIViewController {
     
     func label()  {
         getDimensions()
+        display = UILabel()
         display.frame = CGRect(x: width * 0, y: height * 0, width: screenWidth, height: height)
         display.textAlignment = NSTextAlignment.Center
         display.text = "0"
