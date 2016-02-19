@@ -38,10 +38,11 @@ class ViewController: UIViewController {
         btn7()
         btn8()
         btn9()
+        
     }
     
-    var display: UILabel!
-    
+    var display: UILabel! = UILabel()
+
     func label()  {
         getDimensions()
         display.frame = CGRect(x: width * 0, y: height * 0, width: screenWidth, height: height)
@@ -53,13 +54,13 @@ class ViewController: UIViewController {
         self.view.addSubview(display)
     }
     
-//    var firstNumber = Double()
-//    var secondNumber = Double()
-//    var operation = ""
+    var firstNumber = Double()
+    var secondNumber = Double()
+    var operation = ""
     var userIsTypingNumber = false
-//    var result = Double()
+    var result = Double()
     
-   
+
     func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if userIsTypingNumber {
@@ -69,47 +70,47 @@ class ViewController: UIViewController {
             userIsTypingNumber  = true
         }
     }
-//
-//    func solve(sender: UIButton) {
-//        secondNumber = (display.text! as NSString).doubleValue
-//        userIsTypingNumber = false
-//        if operation == "+" {
-//            result = firstNumber + secondNumber
-//        } else if  operation == "−" {
-//            result = secondNumber-firstNumber
-//        } else if  operation == "×" {
-//            result = firstNumber * secondNumber
-//        } else if operation == "÷" {
-//            result = secondNumber / firstNumber
-//        } else if operation == "√" {
-//            result = sqrt(firstNumber)
-////        } else if operation == "cos" {
-////            result = cos(firstNumber)
-//        } else if operation == "sin" {
-//            self.result = sind(self.firstNumber)
-//        }
-//        display.text = "\(result)"
-//    }
+
+    func solve(sender: UIButton) {
+        secondNumber = (display.text! as NSString).doubleValue
+        userIsTypingNumber = false
+        if operation == "+" {
+            result = firstNumber + secondNumber
+        } else if  operation == "−" {
+            result = firstNumber-secondNumber
+        } else if  operation == "×" {
+            result = firstNumber * secondNumber
+        } else if operation == "÷" {
+            result = firstNumber / secondNumber
+        } else if operation == "√" {
+            result = sqrt(firstNumber)
+//        } else if operation == "cos" {
+//            result = cos(firstNumber)
+        } else if operation == "sin" {
+            self.result = sind(secondNumber)
+        }
+        display.text = "\(result)"
+    }
     
-//    func pi(sender:UIButton!) {
-//        let pi = M_PI
-//    }
+    func pi(sender:UIButton!) {
+        let pi = 3.14
+    }
     
     
-//    
-//    func operation(sender: UIButton) {
-//        userIsTypingNumber = false
-//        firstNumber = (display.text! as NSString).doubleValue
-//        operation = sender.currentTitle!
-//    }
-//    
-//    func empty(sender: UIButton) {
-//        firstNumber = 0
-//        secondNumber = 0
-//        result = 0
-//        display.text = "\(0)"
-//    }
-//    
+    
+    func operation(sender: UIButton) {
+        userIsTypingNumber = false
+        firstNumber = (display.text! as NSString).doubleValue
+        operation = sender.currentTitle!
+    }
+    
+    func empty(sender: UIButton) {
+        firstNumber = 0
+        secondNumber = 0
+        result = 0
+        display.text = "\(0)"
+    }
+    
     
     
     var height: CGFloat = 0.0
