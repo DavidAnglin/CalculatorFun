@@ -18,11 +18,11 @@ class ViewController: UIViewController {
     
     var display: UILabel! = UILabel()
     
-    var firstNumber = Double()
-    var secondNumber = Double()
+    var firstNumber = CDouble()
+    var secondNumber = CDouble()
     var operation = ""
     var userIsTypingNumber = false
-    var result = Double()
+    var result = CDouble()
     var decimalIsPressed = false
     
     
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
     func pis(sender: UIButton) {
         let x = Double(M_PI)
         userIsTypingNumber = true
-        decimalIsPressed = false
+        decimalIsPressed = true
         display.text = "\(x)"
         }
     
@@ -92,8 +92,8 @@ class ViewController: UIViewController {
             result = firstNumber / secondNumber
         } else if operation == "√" {
             result = sqrt(firstNumber)
-            //        } else if operation == "cos" {
-            //            result = cos(firstNumber)
+        } else if operation == "cos" {
+            result = cosd(secondNumber)
         } else if operation == "sin" {
             result = sind(secondNumber)
         }
@@ -106,6 +106,7 @@ class ViewController: UIViewController {
             display.text = display.text! + "."
             decimalIsPressed = true
         }
+        userIsTypingNumber = true
     }
     
     
@@ -121,6 +122,7 @@ class ViewController: UIViewController {
         secondNumber = 0
         result = 0
         display.text = "\(0)"
+        userIsTypingNumber = false
     }
     
     func getDimensions() {
@@ -399,6 +401,10 @@ class ViewController: UIViewController {
 
 func sind(degrees: Double) -> Double {
     return sin(degrees * M_PI / 180.0)
+}
+
+func cosd(degrees: Double) -> Double {
+    return cos(degrees * M_PI / 180.0)
 }
 
 
