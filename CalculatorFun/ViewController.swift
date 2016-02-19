@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     var result = Double()
     var decimalIsPressed = false
     
-    let x = Double(M_PI)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,20 +68,16 @@ class ViewController: UIViewController {
     func solve(sender: UIButton) {
         secondNumber = (display.text! as NSString).doubleValue
         userIsTypingNumber = false
-      enter()
+        enter()
     }
     
     func pis(sender: UIButton) {
+        let x = Double(M_PI)
         userIsTypingNumber = true
-            if display.text != "0" {
-                enter()
-                display.text = "\(x)"
-                enter()
-            } else {
-                display.text = "\(x)"
-                enter()
-            }
+        decimalIsPressed = false
+        display.text = "\(x)"
         }
+    
     
     func enter() {
         userIsTypingNumber = false
