@@ -18,11 +18,11 @@ class ViewController: UIViewController {
     
     var display: UILabel! = UILabel()
     
-    var firstNumber = CDouble()
-    var secondNumber = CDouble()
+    var firstNumber = Double()
+    var secondNumber = Double()
     var operation = ""
     var userIsTypingNumber = false
-    var result = CDouble()
+    var result = Double()
     var decimalIsPressed = false
     
     
@@ -59,29 +59,17 @@ class ViewController: UIViewController {
         let digit = sender.currentTitle!
         if userIsTypingNumber {
             display.text = display.text! + digit
+            decimalIsPressed = true
         } else {
             display.text = digit
             userIsTypingNumber  = true
+            decimalIsPressed = false
         }
     }
 
     func solve(sender: UIButton) {
         secondNumber = (display.text! as NSString).doubleValue
         userIsTypingNumber = false
-        enter()
-    }
-    
-    func pis(sender: UIButton) {
-        let x = Double(M_PI)
-        userIsTypingNumber = true
-        decimalIsPressed = true
-        display.text = "\(x)"
-        }
-    
-    
-    func enter() {
-        userIsTypingNumber = false
-        decimalIsPressed = false
         if operation == "+" {
             result = firstNumber + secondNumber
         } else if  operation == "−" {
@@ -100,15 +88,25 @@ class ViewController: UIViewController {
         display.text = "\(result)"
     }
     
+    
+    func pis(sender: UIButton) {
+        let x = Double(M_PI)
+        userIsTypingNumber = true
+        decimalIsPressed = true
+        display.text = "\(x)"
+    }
+    
+    
     func point(sender:UIButton) {
         userIsTypingNumber = true
         if decimalIsPressed == false {
             display.text = display.text! + "."
             decimalIsPressed = true
         }
-        userIsTypingNumber = true
     }
-    
+
+        
+ 
     
     
    func operation(sender: UIButton) {
